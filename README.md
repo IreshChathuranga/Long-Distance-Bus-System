@@ -13,7 +13,13 @@ This is a full-stack, enterprise-grade web application designed to modernize and
 Screenshots
 ===========
 ```bash
-![Home Page](screenshots/homepage.png)
+[Home Page](screenshots/homepage.png)
+[Register Page](screenshots/register.png)
+[Login Page](screenshots/loginpage.png)
+[Booking Page](screenshots/chooseseatpage.png)
+[Payment Page](screenshots/paymentpage.png)
+[Ticket Page](screenshots/paymentsucesspage.png)
+[Tracking Page](screenshots/bustrackingpage.png)
 ```
 Setup Instructions
 ==================
