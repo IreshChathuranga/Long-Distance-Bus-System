@@ -23,7 +23,7 @@ transport-ticketing-system/
 │   ├── src/
 │   └── pom.xml
 │
-├── frontend/
+├── frontend/                 # HTML, CSS, JS files
 |    └── images
 |    └── js
 |    └── css
@@ -31,3 +31,13 @@ transport-ticketing-system/
 │
 ├── README.md
 └── ...
+```
+Prerequisites
+=============
+Java JDK 21
+
+MySQL 8+
+
+Maven
+
+An IDE (e.g., IntelliJ IDEA, VS Code)
