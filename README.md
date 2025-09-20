@@ -1,10 +1,9 @@
-Transport Ticketing and Seat Reservation System for Long-Distance Buses
+**Transport Ticketing and Seat Reservation System for Long-Distance Buses**
 =======================================================================
 
 Student Info
 ============
 Name: Iresh Chathuranga  
-Student ID: 241711010
 
 Project Description
 ===================
@@ -41,3 +40,21 @@ MySQL 8+
 Maven
 
 An IDE (e.g., IntelliJ IDEA, VS Code)
+
+Environment Configurations
+--------------------------
+
+Depending on the features, update the following configs:
+
+1.Google OAuth API Key & Client ID (for Google Login)
+2.PayHere Merchant Credentials (for Payment Integration)
+3.JavaMail SMTP Settings (for Email notifications)
+4.QR Code Configuration
+
+Testing
+-------
+
+POST /api/auth/register
+POST /api/auth/login
+GET /api/buses
+POST /api/tickets
