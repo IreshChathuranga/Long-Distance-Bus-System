@@ -235,3 +235,6 @@ Caused by: org.hibernate.query.SemanticException: Could not resolve class 'org.e
 2025-09-20T15:46:04.628+05:30  INFO 15832 --- [Long Distance Bus Backend] [http-nio-8080-exec-5] o.e.b.controller.PayHereController       : Payment saved for bookingRef BK-1758363332969
 2025-09-20T15:46:04.685+05:30  INFO 15832 --- [Long Distance Bus Backend] [http-nio-8080-exec-5] o.e.b.controller.PayHereController       : Booking confirmed for bookingRef BK-1758363332969
 2025-09-20T15:48:05.773+05:30  INFO 15832 --- [Long Distance Bus Backend] [http-nio-8080-exec-1] o.e.backend.service.impl.EmailService    : Login notification email sent to chathurangairesh6789803344@gmail.com
+2025-09-20T18:11:59.431+05:30  INFO 15832 --- [Long Distance Bus Backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-20T18:11:59.596+05:30  INFO 15832 --- [Long Distance Bus Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-09-20T18:11:59.686+05:30  INFO 15832 --- [Long Distance Bus Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
