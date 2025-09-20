@@ -1,0 +1,160 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Left side image with overlay text */
+.left-section {
+    position: relative;
+    background: url("../image/img1.jpg") no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.left-section .overlay-text {
+    position: absolute;
+    top: 55%;
+    left: 3%;
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Card base style */
+.card {
+    border-radius: 0;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card header */
+.card-header {
+    color: white;
+    height: 17vh;
+    border-bottom: 2px solid transparent;
+}
+
+/* Card body */
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Custom input fields */
+.custom-input {
+    border: 1px solid #4CAF50 !important;
+    border-left: transparent !important;
+    padding: 0.5rem 0.75rem;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.custom-icon {
+    color: #616464;
+    border: 1px solid #4CAF50 !important;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: #f8f9fa;
+}
+
+/* Placeholder color */
+.custom-input::placeholder {
+    color: #999999;
+    opacity: 1;
+}
+
+/* Focus state */
+.custom-input:focus {
+    border-color: #1E90FF !important;
+    box-shadow: 0 0 0 0.2rem rgba(30, 144, 255, 0.25);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-1px);
+}
+
+/* Form help text */
+.form-text {
+    font-size: 0.875rem;
+}
+
+/* NIC + Password row */
+.nic-password-row {
+    display: flex;
+    gap: 15px;
+}
+.nic-password-row .form-group {
+    flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .left-section {
+        display: none;
+    }
+    .right-section {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .card {
+        height: auto;
+        margin: 1rem;
+    }
+    .nic-password-row {
+        flex-direction: column;
+    }
+}
+
+@keyframes spinUp {
+    0% { transform: rotateX(90deg); opacity: 0; }
+    50% { transform: rotateX(-10deg); opacity: 1; }
+    100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+#animatedWords {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #9d9696;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    perspective: 500px;
+    position: absolute;
+    top: 115%;
+    left: 60%;
+}
+
+.word-spin {
+    display: inline-block;
+    animation: spinUp 0.8s ease forwards;
+}
+.logo-img {
+    width: 200px;   /* logo width */
+    height: auto;   /* preserve aspect ratio */
+    display: block;
+    margin: 0 auto; /* center horizontally */
+}
+.text{
+    color: black;
+    font-weight: bold;
+}
+.btn{
+    border-radius: 20px;
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Cancelled - Bus Ticketing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="../css/payment-result.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="../image/logo2.png" alt="Bus Ticketing Logo" class="logo-img mb-2"></a>
+    <div class="navbar-nav ms-auto">
+      <a class="nav-link" href="bus-schedule.html"><i class="fas fa-history me-1"></i>Bookings</a>
+      <a class="nav-link active" href="user-profile.html"><i class="fas fa-user me-1"></i>Profile</a>
+      <a class="nav-link" href="#"><i class="fas fa-sign-out-alt me-1"></i>Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <!-- Payment Steps -->
+      <div class="card mb-4 pay-step">
+        <div class="card-body">
+          <div class="payment-steps">
+            <div class="step completed">
+              <div class="step-number">1</div>
+              <div class="step-label">Select Seats</div>
+            </div>
+            <div class="step completed">
+              <div class="step-number">2</div>
+              <div class="step-label">Passenger Details</div>
+            </div>
+            <div class="step cancelled">
+              <div class="step-number">3</div>
+              <div class="step-label">Payment</div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-label">Confirmation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cancel Message -->
+      <div class="card">
+        <div class="card-body text-center py-5">
+          <div class="cancel-icon mb-4">
+            <i class="fas fa-times-circle text-danger" style="font-size: 5rem;"></i>
+          </div>
+          <h2 class="text-danger mb-3">Payment Cancelled</h2>
+          <p class="lead mb-4">Your payment was cancelled and no charges were made to your account.</p>
+
+          <!-- Booking Details -->
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="card bg-light">
+                <div class="card-body">
+                  <h5 class="card-title text-muted mb-3">
+                    <i class="fas fa-clock me-2"></i>Booking Details (Not Confirmed)
+                  </h5>
+                  <div class="row text-start">
+                    <div class="col-md-6">
+                      <p class="mb-2"><strong>Route:</strong> Colombo → Kandy</p>
+                      <p class="mb-2"><strong>Date:</strong> Today, 08:30 AM</p>
+                      <p class="mb-2"><strong>Seat:</strong> B2</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="mb-2"><strong>Passenger:</strong> John Doe</p>
+                      <p class="mb-2"><strong>Bus:</strong> ABC Transport Express</p>
+                      <p class="mb-2"><strong>Amount:</strong> Rs. 500</p>
+                    </div>
+                  </div>
+                  <div class="alert alert-warning mt-3 mb-0">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Note:</strong> Your seat reservation has been released and is now available for other passengers.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reasons for Cancellation -->
+          <div class="mt-4">
+            <h6 class="mb-3">Common reasons for payment cancellation:</h6>
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <ul class="list-unstyled text-start">
+                  <li class="mb-2"><i class="fas fa-circle text-muted me-2" style="font-size: 0.5rem;"></i>Payment was manually cancelled by user</li>
+                  <li class="mb-2"><i class="fas fa-circle text-muted me-2" style="font-size: 0.5rem;"></i>Insufficient funds in account</li>
+                  <li class="mb-2"><i class="fas fa-circle text-muted me-2" style="font-size: 0.5rem;"></i>Card details were incorrect</li>
+                  <li class="mb-2"><i class="fas fa-circle text-muted me-2" style="font-size: 0.5rem;"></i>Payment gateway timeout</li>
+                  <li class="mb-2"><i class="fas fa-circle text-muted me-2" style="font-size: 0.5rem;"></i>Bank declined the transaction</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="mt-4">
+            <a href="06-payment-gateway.html" class="btn btn-primary me-3">
+              <i class="fas fa-redo me-2"></i>Try Payment Again
+            </a>
+            <a href="05-seat-selection.html" class="btn btn-outline-primary me-3">
+              <i class="fas fa-chair me-2"></i>Select Different Seats
+            </a>
+            <a href="04-bus-schedule.html" class="btn btn-outline-secondary">
+              <i class="fas fa-search me-2"></i>Search New Route
+            </a>
+          </div>
+
+          <!-- Help Section -->
+          <div class="mt-4">
+            <div class="card border-info">
+              <div class="card-body">
+                <h6 class="card-title text-info">
+                  <i class="fas fa-question-circle me-2"></i>Need Help?
+                </h6>
+                <p class="card-text mb-3">If you're experiencing payment issues, our support team is here to help.</p>
+                <button class="btn btn-outline-info btn-sm me-2" onclick="contactSupport()">
+                  <i class="fas fa-phone me-1"></i>Contact Support
+                </button>
+                <button class="btn btn-outline-info btn-sm" onclick="openChat()">
+                  <i class="fas fa-comments me-1"></i>Live Chat
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Info -->
+          <div class="alert alert-info mt-4">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Reminder:</strong> Seat availability changes frequently. We recommend completing your booking as soon as possible to secure your preferred seats.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer bg-dark text-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <h5 class="mb-3">
+          GAMANA
+        </h5>
+        <p class="text-light">Your trusted partner for comfortable and safe long-distance bus travel across Sri Lanka.</p>
+        <div class="social-links">
+          <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h6 class="mb-3">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+          <li><a href="#" class="text-light text-decoration-none">About</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h6 class="mb-3">Support</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none">Help Center</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
+          <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <h6 class="mb-3">Contact Info</h6>
+        <div class="contact-info">
+          <p class="text-light mb-2">
+            <i class="fas fa-phone me-2"></i>
+            +94 11 234 5678
+          </p>
+          <p class="text-light mb-2">
+            <i class="fas fa-envelope me-2"></i>
+            info@lankaexpress.lk
+          </p>
+          <p class="text-light mb-0">
+            <i class="fas fa-map-marker-alt me-2"></i>
+            123 Galle Road, Colombo 03, Sri Lanka
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="text-light mb-0">&copy; 2024 Lanka Express. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="text-light mb-0">Developed by Iresh Chathuranga</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function contactSupport() {
+    alert('Redirecting to support page...');
+    // Implementation for support contact
+  }
+
+  function openChat() {
+    alert('Opening live chat...');
+    // Implementation for live chat
+  }
+
+  // Auto-redirect after 60 seconds
+  setTimeout(() => {
+    if (confirm('Would you like to try booking again?')) {
+      window.location.href = '04-bus-schedule.html';
+    }
+  }, 60000);
+</script>
+</body>
+</html>

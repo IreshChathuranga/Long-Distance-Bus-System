@@ -1,0 +1,158 @@
+/* Adding styles for payment result pages */
+.success-icon,
+.cancel-icon {
+    animation: fadeInScale 0.6s ease-out;
+}
+.navbar{
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--light-color);
+    transition: all 0.3s ease;
+    background: transparent !important;
+    border-bottom: 1px solid #262c46;
+}
+.navbar .nav-link {
+    color: #262c46 !important;   /* Default color */
+    font-weight: 500;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover {
+    color: #777a88 !important;       /* Hover color */
+}
+
+/* Active link */
+.navbar .nav-link.active {
+    color: #262c46 !important;      /* Active color */
+}
+.logo-img {
+    width: 150px;   /* logo width */
+    height: auto;   /* preserve aspect ratio */
+    display: block;
+    margin: 0 auto; /* center horizontally */
+    padding-right: 20px;
+    padding-top: 10px;
+}
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.pay-step{
+    margin-top: 70px;
+}
+
+.payment-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 60%;
+    width: 80%;
+    height: 2px;
+    background-color: #dee2e6;
+    z-index: 1;
+}
+
+.step.completed::after,
+.step.active::after {
+    background-color: #28a745;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #dee2e6;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.step.completed .step-number {
+    background-color: #28a745;
+    color: white;
+}
+.step-label {
+    font-size: 0.875rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.step.completed .step-label,
+.step.active .step-label {
+    color: #495057;
+    font-weight: 500;
+}
+.pay-step{
+    margin-top: 70px;
+}
+.step.cancelled .step-number {
+    background-color: #dc3545;
+    color: white;
+}
+
+.step.cancelled::after {
+    background-color: #dc3545;
+}
+
+.qr-code-container {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    margin-bottom: 70px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.alert {
+    border-left: 4px solid;
+}
+
+.alert-info {
+    border-left-color: #0dcaf0;
+}
+
+.alert-warning {
+    border-left-color: #ffc107;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .success-icon i,
+    .cancel-icon i {
+        font-size: 3rem !important;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+    }
+}

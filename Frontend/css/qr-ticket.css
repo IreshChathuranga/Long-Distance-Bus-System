@@ -1,0 +1,235 @@
+.navbar-brand {
+    font-weight: bold;
+}
+
+.ticket-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.ticket-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 2rem;
+}
+
+.ticket-body {
+    padding: 2rem;
+    background-color: white;
+}
+
+.ticket-footer {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.info-section {
+    margin-bottom: 1.5rem;
+}
+
+.info-section h6 {
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item .label {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.info-item .value {
+    color: #495057;
+    font-weight: 600;
+}
+
+.journey-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.journey-route {
+    position: relative;
+}
+
+.location-info h4 {
+    color: #495057;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.time-info h5 {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.journey-line {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.journey-line .line {
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(to bottom, #007bff, #28a745);
+    margin: 0.5rem 0;
+}
+
+.seat-display {
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.seat-visual i {
+    color: #007bff;
+}
+
+.seat-visual h3 {
+    color: #495057;
+    font-weight: bold;
+}
+
+.fare-details {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.qr-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.qr-code-container {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.qr-placeholder {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-mock {
+    width: 120px;
+    height: 120px;
+    background: repeating-linear-gradient(45deg, #000, #000 2px, #fff 2px, #fff 4px);
+    border-radius: 5px;
+}
+
+.verification-code {
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: #007bff;
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.instructions-section {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.instruction-list {
+    list-style: none;
+    padding: 0;
+}
+
+.instruction-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.instruction-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.contact-section {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.contact-section i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media print {
+    .navbar,
+    .btn,
+    .text-center:last-child {
+        display: none !important;
+    }
+
+    .ticket-card {
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+
+    .ticket-header,
+    .ticket-footer {
+        background: #f8f9fa !important;
+        color: #495057 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ticket-header,
+    .ticket-body,
+    .ticket-footer {
+        padding: 1rem;
+    }
+
+    .journey-section {
+        padding: 1rem;
+    }
+
+    .location-info h4 {
+        font-size: 1.25rem;
+    }
+
+    .journey-line .line {
+        height: 30px;
+    }
+}

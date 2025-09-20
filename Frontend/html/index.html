@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lanka Bus Ticketing System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <img src="../image/logo2.png" alt="Bus Ticketing Logo" class="logo-img mb-2">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#schedules">Schedules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#quick-search">Book Ticket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tracking">Track Bus</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle me-1"></i>
+                        Account
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="user-login.html">Login</a></li>
+                        <li><a class="dropdown-item" href="user-registration.html">Register</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="user-profile.html">My Profile</a></li>
+                        <li><a class="dropdown-item" href="#bookings">My Bookings</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <!-- Background Slideshow -->
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold text-white mb-4">
+                        Travel Sri Lanka with Comfort & Convenience
+                    </h1>
+                    <p class="lead text-white-50 mb-4">
+                        Book your long-distance bus tickets online with real-time seat selection,
+                        live tracking, and secure payment options.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-dark btn-outline-light btn-lg px-4" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                            <i class="fas fa-ticket-alt me-2"></i>
+                            Book Now
+                        </button>
+                        <button class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            Track Bus
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="col-lg-6">-->
+            <!--                <div class="hero-image">-->
+            <!--&lt;!&ndash;                    <img src="../images/bus.png">&ndash;&gt;-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</section>
+
+<!-- Quick Search Section -->
+<section id="quick-search" class="quick-search-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="search-card">
+                    <h3 class="text-center mb-4">Find Your Journey</h3>
+                    <form class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">From</label>
+                            <select class="form-select">
+                                <option>Colombo</option>
+                                <option>Kandy</option>
+                                <option>Galle</option>
+                                <option>Jaffna</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">To</label>
+                            <select class="form-select">
+                                <option>Kandy</option>
+                                <option>Colombo</option>
+                                <option>Galle</option>
+                                <option>Anuradhapura</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-control" value="2024-01-15">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button type="button" class="btn btn-primary w-100" onclick="window.location.href='bus-schedule.html'">
+                                <i class="fas fa-search me-2"></i>Search Buses
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <img src="../image/logo2.png" alt="Bus Ticketing Logo" class="logo mb-2">
+                <h2 class="display-5 fw-bold mb-3">Why Choose Gamana?</h2>
+                <p class="lead text-muted">Experience the future of bus travel with our advanced booking system</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card card1 h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Secure Booking</h4>
+                    <p>Two-factor authentication with email OTP verification ensures your account security.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card card2 h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4>Live Tracking</h4>
+                    <p>Track your bus in real-time with GPS location updates and estimated arrival times.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card card3 h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h4>Seat Selection</h4>
+                    <p>Choose your preferred seat with our interactive seat layout and real-time availability.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card card4 h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4>Digital Tickets</h4>
+                    <p>Get QR code e-tickets instantly via email and SMS for hassle-free boarding.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card card5 h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h4>Secure Payments</h4>
+                    <p>Multiple payment options with secure gateway integration for safe transactions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card card card6 h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h4>Booking History</h4>
+                    <p>Access your complete booking history and manage cancellations easily.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bus Schedules Section -->
+<section id="schedules" class="schedules-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Today's Bus Schedules</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-hover schedule-table">
+                        <thead class="table-head">
+                        <tr>
+                            <th>Route</th>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Bus Type</th>
+                            <th>Available Seats</th>
+                            <th>Fare</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <strong>Colombo → Kandy</strong><br>
+                                <small class="text-muted">Express Highway</small>
+                            </td>
+                            <td>
+                                <strong>08:30 AM</strong><br>
+                                <small class="text-muted">Pettah Terminal</small>
+                            </td>
+                            <td>
+                                <strong>11:00 AM</strong><br>
+                                <small class="text-muted">Kandy Central</small>
+                            </td>
+                            <td>
+                                <span class="badge bg-success">AC Luxury</span>
+                            </td>
+                            <td>
+                                <span class="text-success fw-bold">12/45</span>
+                            </td>
+                            <td>
+                                <strong>Rs. 450</strong>
+                            </td>
+                            <td>
+                                <span class="badge bg-success">On Time</span>
+                            </td>
+                            <td>
+                                <button class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#seatSelectionModal">
+                                    Book Now
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Kandy → Galle</strong><br>
+                                <small class="text-muted">Coastal Route</small>
+                            </td>
+                            <td>
+                                <strong>09:15 AM</strong><br>
+                                <small class="text-muted">Kandy Central</small>
+                            </td>
+                            <td>
+                                <strong>01:30 PM</strong><br>
+                                <small class="text-muted">Galle Bus Stand</small>
+                            </td>
+                            <td>
+                                <span class="badge bg-info">Semi Luxury</span>
+                            </td>
+                            <td>
+                                <span class="text-warning fw-bold">5/40</span>
+                            </td>
+                            <td>
+                                <strong>Rs. 380</strong>
+                            </td>
+                            <td>
+                                <span class="badge bg-warning">Delayed 15min</span>
+                            </td>
+                            <td>
+                                <button class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#seatSelectionModal">
+                                    Book Now
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Colombo → Jaffna</strong><br>
+                                <small class="text-muted">Northern Express</small>
+                            </td>
+                            <td>
+                                <strong>10:00 AM</strong><br>
+                                <small class="text-muted">Bastian Mawatha</small>
+                            </td>
+                            <td>
+                                <strong>06:30 PM</strong><br>
+                                <small class="text-muted">Jaffna Central</small>
+                            </td>
+                            <td>
+                                <span class="badge bg-success">AC Luxury</span>
+                            </td>
+                            <td>
+                                <span class="text-danger fw-bold">2/50</span>
+                            </td>
+                            <td>
+                                <strong>Rs. 850</strong>
+                            </td>
+                            <td>
+                                <span class="badge bg-success">On Time</span>
+                            </td>
+                            <td>
+                                <button class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#seatSelectionModal">
+                                    Book Now
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Live Tracking Section -->
+<section id="tracking" class="tracking-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="mb-4">Live Bus Tracking</h2>
+                <div class="tracking-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Bus #LK-2547</h5>
+                        <span class="badge bg-success">Live</span>
+                    </div>
+                    <p class="text-muted mb-3">Colombo → Kandy Express</p>
+
+                    <div class="tracking-info">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="info-item">
+                                    <i class="fas fa-clock text-primary"></i>
+                                    <div>
+                                        <small class="text-muted">Current Time</small>
+                                        <div class="fw-bold">10:45 AM</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="info-item">
+                                    <i class="fas fa-tachometer-alt text-success"></i>
+                                    <div>
+                                        <small class="text-muted">Speed</small>
+                                        <div class="fw-bold">65 km/h</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt text-danger"></i>
+                                    <div>
+                                        <small class="text-muted">Current Location</small>
+                                        <div class="fw-bold">Kegalle</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="info-item">
+                                    <i class="fas fa-hourglass-half text-warning"></i>
+                                    <div>
+                                        <small class="text-muted">ETA</small>
+                                        <div class="fw-bold">11:15 AM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Interactive Map View</p>
+                        <small class="text-muted">Real-time GPS tracking would be displayed here</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h5 class="mb-3">
+                    GAMANA
+                </h5>
+                <p class="text-light">Your trusted partner for comfortable and safe long-distance bus travel across Sri Lanka.</p>
+                <div class="social-links">
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="mb-3">Quick Links</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Schedules</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Book Ticket</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Track Bus</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="mb-3">Support</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Help Center</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h6 class="mb-3">Contact Info</h6>
+                <div class="contact-info">
+                    <p class="text-light mb-2">
+                        <i class="fas fa-phone me-2"></i>
+                        +94 11 234 5678
+                    </p>
+                    <p class="text-light mb-2">
+                        <i class="fas fa-envelope me-2"></i>
+                        info@lankaexpress.lk
+                    </p>
+                    <p class="text-light mb-0">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        123 Galle Road, Colombo 03, Sri Lanka
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="text-light mb-0">&copy; 2024 Lanka Express. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="text-light mb-0">Developed by Iresh Chathuranga</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>

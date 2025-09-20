@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live Bus Tracking - Bus Ticketing System</title>
+
+    <!-- Bootstrap & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="../css/tracking.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="../image/logo2.png" alt="Bus Ticketing Logo" class="logo-img mb-2"></a>
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="bus-schedule.html"><i class="fas fa-history me-1"></i>Bookings</a>
+            <a class="nav-link active" href="user-profile.html"><i class="fas fa-user me-1"></i>Profile</a>
+            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt me-1"></i>Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid mt-4 main-content">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="fas fa-ticket-alt me-2"></i>Your Trip</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Bus Number:</strong> ABC-1234</p>
+                    <p><strong>Route:</strong> Colombo → Kandy</p>
+                    <p><strong>Seat:</strong> B2</p>
+                    <p><strong>Departure:</strong> 08:30 AM</p>
+                    <p><strong>Expected Arrival:</strong> 12:00 PM</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6><i class="fas fa-broadcast-tower me-2"></i>Live Status</h6>
+                </div>
+                <div class="card-body">
+                    <div class="status-indicator mb-3">
+                        <h6 class="text-success">Bus is Moving</h6>
+                        <small class="text-muted">Last updated: 2 min ago</small>
+                    </div>
+
+                    <div class="current-location mb-3">
+                        <p><strong>Current Location:</strong></p>
+                        <p class="text-muted">Loading...</p>
+                    </div>
+
+                    <div class="speed-info mb-3 row text-center">
+                        <div class="col-6">
+                            <h4 class="text-primary">0</h4>
+                            <small>km/h</small>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-success">0</h4>
+                            <small>km remaining</small>
+                        </div>
+                    </div>
+
+                    <div class="eta-info">
+                        <div class="alert alert-info">
+                            <i class="fas fa-clock me-2"></i><strong>ETA:</strong> --
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h5><i class="fas fa-map-marked-alt me-2"></i>Live Location</h5>
+                    <div>
+                        <button class="btn btn-sm btn-outline-primary" id="loadMap"><i class="fas fa-play me-1"></i> Load Map</button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div id="mapContainer" style="height: 500px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="../js/live-tracking.js"></script>
+</body>
+</html>

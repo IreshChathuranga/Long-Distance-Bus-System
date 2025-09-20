@@ -1,0 +1,238 @@
+.navbar{
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--light-color);
+    transition: all 0.3s ease;
+    background: transparent !important;
+    border-bottom: 1px solid #262c46;
+}
+.navbar .nav-link {
+    color: #262c46 !important;   /* Default color */
+    font-weight: 500;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover {
+    color: #777a88 !important;       /* Hover color */
+}
+
+/* Active link */
+.navbar .nav-link.active {
+    color: #262c46 !important;      /* Active color */
+}
+.logo-img {
+    width: 150px;   /* logo width */
+    height: auto;   /* preserve aspect ratio */
+    display: block;
+    margin: 0 auto; /* center horizontally */
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.pay-step{
+    margin-top: 70px;
+}
+
+.payment-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 60%;
+    width: 80%;
+    height: 2px;
+    background-color: #dee2e6;
+    z-index: 1;
+}
+
+.step.completed::after,
+.step.active::after {
+    background-color: #28a745;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #dee2e6;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.step.completed .step-number {
+    background-color: #28a745;
+    color: white;
+}
+
+.step.active .step-number {
+    background-color: #262c46;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.875rem;
+    text-align: center;
+    color: #6c757d;
+}
+
+.step.completed .step-label,
+.step.active .step-label {
+    color: #495057;
+    font-weight: 500;
+}
+
+.card-header{
+    background-color: rgb(224, 222, 222);
+}
+.card-body h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #262c46;
+}
+.fw-medium {
+    font-weight: 500;
+}
+.summary-card{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+.booking-details p,
+.fare-breakdown div {
+    font-size: 0.95rem;
+}
+
+.booking-details h6 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card .text-muted {
+    font-size: 0.9rem;
+    color: #6c757d !important;
+}
+.booking-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.fare-breakdown {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+}
+#orderRoute{
+    position: absolute;
+    right: 32px;
+}
+#orderSeats{
+    position: absolute;
+    right: 32px;
+}
+#orderPassenger{
+    position: absolute;
+    right: 32px;
+}
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #1e7e34, #155724);
+    transform: translateY(-1px);
+}
+
+.alert-info {
+    background-color: #e7f3ff;
+    border-color: #b3d7ff;
+    color: #004085;
+}
+
+@media (max-width: 768px) {
+    .payment-steps {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .step::after {
+        display: none;
+    }
+
+    .payment-methods .btn-outline-primary {
+        margin-bottom: 0.5rem;
+    }
+}
+.pay-card{
+    margin-bottom: 50px;
+}
+.text{
+    font-size: 10px;
+}
+#orderCompany {
+    font-size: 1.2rem;   /* company + bus type */
+    font-weight: 600;
+    color: #0d6efd;      /* Bootstrap primary blue */
+}
+
+/*#orderRoute,*/
+/*#orderSeats,*/
+/*#orderPassenger {*/
+/*    font-size: 0.95rem;  !* slightly smaller text *!*/
+/*    color: #333;         !* dark grey *!*/
+/*}*/
+#orderFare,
+#orderService,
+#orderTaxes {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#orderTotal {
+    font-size: 1.3rem;   /* highlight total */
+    font-weight: bold;
+    color: #198754;      /* Bootstrap success green */
+}
+#orderRoute strong,
+#orderSeats strong,
+#orderPassenger strong {
+    font-weight: bold;   /* only label bold */
+    margin-right: 5px;
+}
+
+#orderRoute .value,
+#orderSeats .value,
+#orderPassenger .value {
+    font-weight: normal; /* dynamic data normal */
+    color: #333;
+    font-size: 0.95rem;
+}

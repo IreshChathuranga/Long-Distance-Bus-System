@@ -1,0 +1,65 @@
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.otp-input-container {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.otp-input {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.otp-input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.otp-input.filled {
+    border-color: #28a745;
+    background-color: #f8fff9;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #1e7e34, #155724);
+    transform: translateY(-1px);
+}
+
+.timer-container {
+    margin-top: 1rem;
+}
+
+#timer {
+    font-family: "Courier New", monospace;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 576px) {
+    .otp-input {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .otp-input-container {
+        gap: 0.25rem !important;
+    }
+}

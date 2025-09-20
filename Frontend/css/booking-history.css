@@ -1,0 +1,97 @@
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.booking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.booking-card .badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.booking-info h5 {
+    color: #495057;
+    font-weight: 600;
+}
+
+.route-info {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+.trip-details p {
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+}
+
+.booking-actions h4 {
+    font-weight: bold;
+}
+
+.btn-group-vertical .btn {
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+}
+
+.btn-group-vertical .btn:last-child {
+    margin-bottom: 0;
+}
+
+.cancellation-info {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.refund-info {
+    background-color: #d4edda;
+    border-radius: 6px;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.filter-controls .form-select,
+.filter-controls .form-control {
+    border-radius: 6px;
+}
+
+.pagination .page-link {
+    border-radius: 6px;
+    margin: 0 0.125rem;
+    color: #007bff;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+    .booking-actions {
+        margin-top: 1rem;
+    }
+
+    .filter-controls {
+        margin-top: 1rem;
+    }
+
+    .filter-controls .form-select,
+    .filter-controls .form-control {
+        margin-bottom: 0.5rem;
+        width: 100% !important;
+    }
+}

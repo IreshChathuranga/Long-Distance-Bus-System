@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Schedule - Bus Ticketing System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bus.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <img src="../image/logo2.png" alt="Bus Ticketing Logo" class="logo-img mb-2">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#schedules">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#quick-search">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle me-1"></i>
+                        Account
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="user-login.html">Login</a></li>
+                        <li><a class="dropdown-item" href="user-registration.html">Register</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="user-profile.html">My Profile</a></li>
+                        <li><a class="dropdown-item" href="#bookings">My Bookings</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <!-- Background Slideshow -->
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold text-white mb-4">
+                        Find Your Perfect Bus Schedule Across Sri Lanka
+                    </h1>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-dark btn-outline-light btn-lg px-4" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                            <i class="fas fa-ticket-alt me-2"></i>
+                            Buy Ticket
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Search Section -->
+<section id="quick-search" class="quick-search-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="search-card">
+                    <h3 class="text-center mb-4">Find Your Journey</h3>
+                    <form class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">From</label>
+                            <select id="fromStop" class="form-select"></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">To</label>
+                            <select id="toStop" class="form-select"></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-control" value="2024-01-15">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-search me-2"></i>Search Buses
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- Bus Schedule Results -->
+<section id="bus-schedule" class="py-5">
+    <div class="container">
+        <h5 class="mb-4"><i class="fas fa-list me-2"></i>Available Buses</h5>
+        <div id="busScheduleCards" class="row g-4">
+            <!-- JavaScript will populate cards here -->
+        </div>
+    </div>
+</section>
+<!-- Real-time Updates -->
+<div class="alert alert-info mt-3" role="alert">
+    <i class="fas fa-info-circle me-2"></i>
+    <strong>Real-time Updates:</strong> Bus schedules and seat availability are updated every 30 seconds.
+    Last updated: <span id="lastUpdated">--:--</span>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h5 class="mb-3">
+                    GAMANA
+                </h5>
+                <p class="text-light">Your trusted partner for comfortable and safe long-distance bus travel across Sri Lanka.</p>
+                <div class="social-links">
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="mb-3">Quick Links</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">About</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="mb-3">Support</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Help Center</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h6 class="mb-3">Contact Info</h6>
+                <div class="contact-info">
+                    <p class="text-light mb-2">
+                        <i class="fas fa-phone me-2"></i>
+                        +94 11 234 5678
+                    </p>
+                    <p class="text-light mb-2">
+                        <i class="fas fa-envelope me-2"></i>
+                        info@lankaexpress.lk
+                    </p>
+                    <p class="text-light mb-0">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        123 Galle Road, Colombo 03, Sri Lanka
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="text-light mb-0">&copy; 2024 Lanka Express. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="text-light mb-0">Developed by Iresh Chathuranga</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/schedule.js"></script>
+</body>
+</html>

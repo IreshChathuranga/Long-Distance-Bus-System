@@ -1,0 +1,349 @@
+/* Custom CSS for Lanka Express Bus Ticketing System */
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #f59e0b;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #06b6d4;
+    --dark-color: #1f2937;
+    --light-color: #f8fafc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    color: #374151;
+}
+body {
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    color: #374151;
+    /* Adjust this value to exactly match your navbar height */
+    /*padding-top: 70px;*/
+}
+
+/* Navigation Styles */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--light-color);
+    transition: all 0.3s ease;
+    background: transparent !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.navbar>a{
+    position: relative;
+    color: #374151;
+}
+
+.hero-section {
+    background-image: url("../image/img13.jpg");
+    position: relative;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    transition: background-image 1s ease-in-out; /* Smooth fade */
+}
+
+.logo-img {
+    width: 150px;   /* logo width */
+    height: auto;   /* preserve aspect ratio */
+    display: block;
+    margin: 0 auto; /* center horizontally */
+    padding-right: 20px;
+    padding-top: 10px;
+}
+/* Content always on top */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: left;
+    color: transparent;
+}
+.hero-content h1{
+    position: absolute;
+    /*width: 600px;*/
+    bottom: 20px;
+}
+.hero-content button{
+    position: absolute;
+    /*width: 600px;*/
+    bottom: 120px;
+    right: -560px;
+}
+
+.hero-image img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.btn-book{
+    color: #374151;
+}
+/* Quick Search Section */
+.quick-search-section {
+    margin-top: -350px;
+    position: relative;
+    z-index: 10;
+    /*height: 20vh;*/
+}
+
+.search-card {
+    background: #eeeeee;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 50px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d0d0d0;
+}
+.logo{
+    width: 180px;   /* logo width */
+    height: auto;   /* preserve aspect ratio */
+    display: block;
+    margin: 0 auto; /* center horizontally */
+    padding-right: 20px;
+    padding-bottom: 30px;
+}
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #1f2937, #374151);
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.contact-info i {
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .search-card {
+        margin: 0 1rem;
+        padding: 1.5rem;
+    }
+
+    .feature-card {
+        margin-bottom: 2rem;
+    }
+
+    .seat {
+        width: 35px;
+        height: 35px;
+        font-size: 0.7rem;
+    }
+
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .search-card .row {
+        gap: 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .bus-layout {
+        padding: 1rem;
+    }
+}
+
+/* Custom Button Styles */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.btn-warning {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+    border-color: #d97706;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.btn-success:hover {
+    background: #059669;
+    border-color: #059669;
+    transform: translateY(-1px);
+}
+
+/* Form Styles */
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 0.75rem 1rem;
+}
+
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+/* Badge Styles */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--info-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-custom {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.border-gradient {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--primary-color), var(--info-color)) 1;
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4); /* dark overlay */
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2; /* overlay වලට ඉස්සරහ */
+}
+.navbar .nav-link {
+    /*color: white !important;   !* White links when over Hero *!*/
+    transition: color 0.3s ease;
+}
+
+/* After scroll */
+.navbar.scrolled {
+    /*background: white !important;   !* White background after scroll *!*/
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled .nav-link {
+    color: #374151 !important;  /* Dark text after scroll */
+}
+#bus-schedule {
+    margin-top: 60px; /* adjust depending on hero height */
+}
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient button */
+.btn-gradient {
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+.btn-gradient:hover {
+    background: linear-gradient(45deg, #0056b3, #0099cc);
+    color: #fff;
+}

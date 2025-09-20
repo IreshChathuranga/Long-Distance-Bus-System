@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - Bus Ticketing System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/otp.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="row w-100 justify-content-center">
+        <div class="col-md-5 col-lg-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white text-center py-4">
+                    <div class="mb-3">
+                        <i class="fas fa-shield-alt fa-3x"></i>
+                    </div>
+                    <h3 class="mb-0">Email Verification</h3>
+                    <p class="mb-0 opacity-75">Enter the OTP sent to your email</p>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div class="mb-4">
+                        <p class="text-muted">We've sent a 6-digit verification code to:</p>
+                        <p class="fw-bold text-primary" id="emailDisplay">user@example.com</p>
+                    </div>
+
+                    <form id="otpForm">
+                        <div class="mb-4">
+                            <div class="otp-input-container d-flex justify-content-center gap-2">
+                                <input type="text" class="form-control otp-input text-center" maxlength="1" data-index="0">
+                                <input type="text" class="form-control otp-input text-center" maxlength="1" data-index="1">
+                                <input type="text" class="form-control otp-input text-center" maxlength="1" data-index="2">
+                                <input type="text" class="form-control otp-input text-center" maxlength="1" data-index="3">
+                                <input type="text" class="form-control otp-input text-center" maxlength="1" data-index="4">
+                                <input type="text" class="form-control otp-input text-center" maxlength="1" data-index="5">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 py-3 mb-3">
+                            <i class="fas fa-check me-2"></i>Verify OTP
+                        </button>
+                    </form>
+
+                    <div class="mb-3">
+                        <p class="text-muted mb-2">Didn't receive the code?</p>
+                        <button class="btn btn-outline-primary" id="resendOtp">
+                            <i class="fas fa-redo me-2"></i>Resend OTP
+                        </button>
+                    </div>
+
+                    <div class="timer-container">
+                        <p class="text-muted">Code expires in: <span class="fw-bold text-danger" id="timer">05:00</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/otp.js"></script>
+</body>
+</html>

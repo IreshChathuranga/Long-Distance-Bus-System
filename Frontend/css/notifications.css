@@ -1,0 +1,149 @@
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-filters .btn {
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.notification-filters .btn.active {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.notifications-container {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.notification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.notification-item.unread {
+    border-left: 4px solid #007bff;
+    background-color: #f8f9ff;
+}
+
+.notification-item.read {
+    opacity: 0.8;
+}
+
+.notification-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.notification-icon i {
+    font-size: 1.25rem;
+    color: white;
+}
+
+.notification-icon.bg-purple {
+    background-color: #6f42c1;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.notification-header h6 {
+    margin: 0;
+    color: #495057;
+    font-weight: 600;
+}
+
+.notification-header small {
+    color: #6c757d;
+    margin-left: auto;
+}
+
+.notification-content p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.notification-actions .btn {
+    border-radius: 6px;
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.notification-controls .btn {
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .notification-item {
+        padding: 1rem;
+    }
+
+    .notification-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.75rem;
+    }
+
+    .notification-icon i {
+        font-size: 1rem;
+    }
+
+    .notification-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notification-header small {
+        margin-left: 0;
+        margin-top: 0.25rem;
+    }
+
+    .notification-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .notification-controls {
+        margin-top: 1rem;
+    }
+
+    .notification-filters {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
