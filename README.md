@@ -10,6 +10,11 @@ Project Description
 
 This is a full-stack, enterprise-grade web application designed to modernize and digitalize the long-distance bus ticketing system. The platform facilitates real-time seat reservation, route management, QR-based e-ticketing, payment integration, and live bus tracking. It streamlines operations for passengers, conductors, and transport administrators through a centralized, role-based system.
 
+Screenshots
+===========
+```bash
+![Home Page](screenshots/homepage.png)
+```
 Setup Instructions
 ==================
 
