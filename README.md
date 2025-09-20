@@ -45,16 +45,18 @@ Environment Configurations
 --------------------------
 
 Depending on the features, update the following configs:
-
+```bash
 1.Google OAuth API Key & Client ID (for Google Login)
 2.PayHere Merchant Credentials (for Payment Integration)
 3.JavaMail SMTP Settings (for Email notifications)
 4.QR Code Configuration
+```
 
 Testing
 -------
-
+```bash
 POST /api/auth/register
 POST /api/auth/login
 GET /api/buses
 POST /api/tickets
+```
