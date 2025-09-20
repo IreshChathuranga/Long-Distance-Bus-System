@@ -16,7 +16,7 @@ Setup Instructions
 
 Project Structure
 ================
-
+```bash
 transport-ticketing-system/
 │
 ├── backend/                 # Spring Boot application
