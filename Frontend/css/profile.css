@@ -1,5 +1,4 @@
 .profile-header {
-    /*background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);*/
     color: white;
     border: none;
     backdrop-filter: blur(30px);
@@ -10,20 +9,20 @@
     display: inline-block;
 }
 .logo-img {
-    width: 150px;   /* logo width */
-    height: auto;   /* preserve aspect ratio */
+    width: 150px;
+    height: auto;
     display: block;
-    margin: 0 auto; /* center horizontally */
+    margin: 0 auto;
     padding-right: 20px;
     padding-top: 10px;
 }
 body {
-    background-image: url('../image/img4.jpg'); /* replace with your path */
+    background-image: url('../image/img4.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative; /* important for overlay */
+    position: relative;
     z-index: 0;
 }
 .navbar{
@@ -34,7 +33,6 @@ body {
     background: transparent !important;
     border-bottom: 1px solid white;
 }
-/* Dark overlay before background */
 body::before {
     content: "";
     position: fixed;
@@ -42,12 +40,12 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6); /* dark color overlay */
-    z-index: -1; /* keep it behind content */
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
 }
 .card {
-    background-color: #1e293b; /* dark navy */
-    color: #fff;              /* text contrast */
+    background-color: #1e293b;
+    color: #fff;
 }
 
 .profile-avatar {
@@ -164,7 +162,6 @@ body::before {
     border-color: #007bff;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .profile-header .row {
         text-align: center;

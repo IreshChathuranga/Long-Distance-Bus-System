@@ -1,12 +1,9 @@
-// Bus Ticketing System JavaScript
 
-// Global Variables
 let selectedSeats = []
 let currentRoute = null
 let currentUser = null
 let bookingData = {}
 
-// Sample Data
 const sampleRoutes = [
     {
         id: 1,
@@ -45,10 +42,8 @@ const sampleRoutes = [
 
 const sampleBookedSeats = [1, 3, 7, 12, 15, 23, 28, 35, 41]
 
-// Declare the $ variable
 const $ = window.jQuery
 
-// Initialize Application
 $(document).ready(() => {
     initializeApp()
     setupEventListeners()

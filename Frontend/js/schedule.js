@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const toSelect = document.getElementById("toStop");
     const lastUpdated = document.getElementById("lastUpdated");
 
-    // Load stops
     async function loadStops() {
         try {
             const res = await fetch("http://localhost:8080/api/v1/stop/get");
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadStops();
 
-    // Fetch schedules
     async function fetchSchedules() {
         const from = fromSelect.value;
         const to = toSelect.value;
@@ -60,13 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.log("HTTP Status:", res.status);
 
-            // No buses
             if (res.status === 404) {
                 cardsContainer.innerHTML = `<div class="col-12 text-center"><p>No buses found.</p></div>`;
                 return;
             }
 
-            // Any other server error
             if (!res.ok) {
                 cardsContainer.innerHTML = `<div class="col-12 text-center"><p>Error: ${res.status}</p></div>`;
                 return;
@@ -79,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             schedules.forEach(s => {
                 if (!s.tripId && s.tripId !== 0) {
-                    s.tripId = null; // or assign default value if you want
+                    s.tripId = null;
                 }
             });
 
@@ -90,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Render schedules
             cardsContainer.innerHTML = "";
             schedules.forEach(s => {
                 cardsContainer.innerHTML += `

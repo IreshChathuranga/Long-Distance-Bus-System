@@ -55,11 +55,9 @@ public class Booking {
 
     @PrePersist
     public void prePersist() {
-        // Ensure createdAt is set
         if (this.createdAt == null) {
             this.createdAt = LocalDateTime.now();
         }
-        // Auto-generate expiresAt 30 minutes after createdAt
         if (this.expiresAt == null) {
             this.expiresAt = this.createdAt.plusMinutes(30);
         }

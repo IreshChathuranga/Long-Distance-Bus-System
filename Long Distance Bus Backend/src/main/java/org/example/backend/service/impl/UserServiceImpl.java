@@ -26,13 +26,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(UserDTO userDTO) {
         try {
-            // DTO එකෙන් Entity එකට convert කරන්න
             User user = modelMapper.map(userDTO, User.class);
 
-            // Password hash කරන්න
             user.setPasswordHash(passwordEncoder.encode(user.getPasswordHash()));
 
-            // Save user
             userRepository.save(user);
         } catch (DataIntegrityViolationException ex) {
             throw new ResourseAllredyFound("Duplicate value found (email, phone, or NIC already exists)");
@@ -47,11 +44,9 @@ public class UserServiceImpl implements UserService {
         try {
             User updatedUser = modelMapper.map(userDTO, User.class);
 
-            // Check if password is updated (optional)
             if (userDTO.getPasswordHash() != null && !userDTO.getPasswordHash().isEmpty()) {
                 updatedUser.setPasswordHash(passwordEncoder.encode(userDTO.getPasswordHash()));
             } else {
-                // Keep existing password if not updated
                 updatedUser.setPasswordHash(existingUser.getPasswordHash());
             }
 
@@ -81,7 +76,6 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByEmail(loginRequestDTO.getEmail())
                 .orElseThrow(() -> new ResourseNotFound("User not found with email: " + loginRequestDTO.getEmail()));
 
-        // Compare raw password (NOT secure – better use BCrypt later)
         if (user.getPasswordHash().equals(loginRequestDTO.getPassword())) {
             return new LoginResponseDTO(200, "Login successful", user.getUserId());
         } else {
@@ -96,10 +90,9 @@ public class UserServiceImpl implements UserService {
             throw new ResourseNotFound("No users found");
         }
 
-        // Map each User individually to avoid ModelMapper collection errors
         return allUsers.stream().map(user -> {
             UserDTO dto = modelMapper.map(user, UserDTO.class);
-            dto.setName(user.getFirstName() + " " + user.getLastName()); // manually set name
+            dto.setName(user.getFirstName() + " " + user.getLastName());
             return dto;
         }).toList();
     }
@@ -137,17 +130,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO findOrCreateGoogleUser(String email) {
-        // Try to find user by email
         User user = userRepository.findByEmail(email).orElse(null);
 
         if (user == null) {
-            // If user not found → create a new user with default values
             user = new User();
             user.setEmail(email);
-            user.setFirstName("Google"); // You can customize this
+            user.setFirstName("Google");
             user.setLastName("User");
-            user.setPasswordHash(passwordEncoder.encode("GOOGLE_AUTH")); // dummy hashed password
-
+            user.setPasswordHash(passwordEncoder.encode("GOOGLE_AUTH"));
             user = userRepository.save(user);
         }
 

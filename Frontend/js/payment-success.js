@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Fill booking info
     document.getElementById("ref").textContent = bookingSummary.bookingRef || "N/A";
     document.getElementById("route").textContent = bookingSummary.route || "N/A";
     document.getElementById("date").textContent = selectedBus.departDateTime || "N/A";
@@ -19,40 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("amount").textContent = Number(bookingSummary.totalAmount || 0).toFixed(2);
     document.getElementById("payment").textContent = "Debit Card";
 
-    // Clean URL
     const cleanUrl = window.location.origin + window.location.pathname + "#success";
     window.history.replaceState({}, document.title, cleanUrl);
 
-    // Get booking status
     const token = localStorage.getItem("jwtToken") || localStorage.getItem("token");
     if (!token) {
         alert("Please login again to see booking details.");
         return;
     }
 
-    // fetch(`http://localhost:8080/api/v1/booking/${bookingRef}`, {
-    //     headers: {
-    //         "Authorization": `Bearer ${token}`
-    //     }
-    // })
-    //     .then(res => {
-    //         if (!res.ok) {
-    //             return res.json().then(err => {
-    //                 console.error("Server responded with error:", err);
-    //                 throw new Error("Failed to fetch booking");
-    //             });
-    //         }
-    //         return res.json();
-    //     })
-    //     .then(data => {
-    //         document.getElementById("status").innerText = data.data?.status || 'N/A';
-    //     })
-    //     .catch(err => {
-    //         console.error("Fetch error:", err);
-    //         alert("Error loading booking.");
-    //     });
-
-    // Generate QR Code (IMPORTANT: directly into the visible container!)
     const qrContainer = document.getElementById("qrcode");
     qrContainer.innerHTML = ""; // clear placeholder
 
@@ -64,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
         seat: bookingSummary.seats
     });
 
-    // Directly render into qrContainer — don't use hidden divs
     const qrCode = new QRCode(qrContainer, {
         text: qrContent,
         width: 150,
@@ -130,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
             email: user.email,
             qrCodeBase64: qrDataUrl,
 
-            // Extra info
             bookingRef: bookingSummary.bookingRef,
             passengerName: user.firstName + " " + user.lastName,
             nic: user.nic,

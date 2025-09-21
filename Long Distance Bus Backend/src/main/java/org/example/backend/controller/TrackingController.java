@@ -15,7 +15,7 @@ public class TrackingController {
     @GetMapping("/location/{tripId}")
     public ResponseEntity<Map<String, Object>> getFakeLocation(@PathVariable Integer tripId) {
         Map<String, Object> data = new HashMap<>();
-        data.put("latitude", 7.2510); // Near Kegalle
+        data.put("latitude", 7.2510);
         data.put("longitude", 80.3464);
         data.put("speed", 65);
         data.put("remainingKm", 45);

@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const ORIGIN = window.location.origin;
     console.log("Current Origin:", ORIGIN);
 
-    // -----------------------------
-    // Word spin animation
-    // -----------------------------
     const words = ["COLOMBO", "ANURADHAPURA", "TRINKOMALIEE", "GALLE"];
     let index = 0;
     const animatedSpan = document.getElementById("animatedWords");
@@ -21,9 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     changeWord();
     setInterval(changeWord, 2000);
 
-    // -----------------------------
-    // Toggle password visibility
-    // -----------------------------
     const togglePasswordBtn = document.getElementById("togglePassword");
     const passwordInput = document.getElementById("password");
     if (togglePasswordBtn && passwordInput) {
@@ -34,9 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // -----------------------------
-    // Universal Login Form Handler (user + admin)
-    // -----------------------------
+
     const loginForm = document.getElementById("loginForm");
     if (!loginForm) {
         console.error("loginForm element not found!");
@@ -80,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             localStorage.setItem("jwtToken", token);
 
-            // Identify if admin or user
             if (userOrAdmin.role === "ADMIN" || userOrAdmin.adminId) {
                 localStorage.setItem("admin", JSON.stringify(userOrAdmin));
                 alert("Admin login successful!");
@@ -97,9 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // -----------------------------
-    // Google Login
-    // -----------------------------
+
     google.accounts.id.initialize({
         client_id: "948863779289-371gubqgtieojjvm7onlqm6qc8gi8i2r.apps.googleusercontent.com",
         callback: handleCredentialResponse,

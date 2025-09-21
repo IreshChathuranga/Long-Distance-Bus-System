@@ -7,24 +7,22 @@
     border-bottom: 1px solid #262c46;
 }
 .navbar .nav-link {
-    color: #262c46 !important;   /* Default color */
+    color: #262c46 !important;
     font-weight: 500;
 }
 
-/* Hover effect */
 .navbar .nav-link:hover {
-    color: #777a88 !important;       /* Hover color */
+    color: #777a88 !important;
 }
 
-/* Active link */
 .navbar .nav-link.active {
-    color: #262c46 !important;      /* Active color */
+    color: #262c46 !important;
 }
 .logo-img {
-    width: 150px;   /* logo width */
-    height: auto;   /* preserve aspect ratio */
+    width: 150px;
+    height: auto;
     display: block;
-    margin: 0 auto; /* center horizontally */
+    margin: 0 auto;
     padding-right: 20px;
     padding-top: 10px;
 }
@@ -199,17 +197,12 @@
     font-size: 10px;
 }
 #orderCompany {
-    font-size: 1.2rem;   /* company + bus type */
+    font-size: 1.2rem;
     font-weight: 600;
-    color: #0d6efd;      /* Bootstrap primary blue */
+    color: #0d6efd;
 }
 
-/*#orderRoute,*/
-/*#orderSeats,*/
-/*#orderPassenger {*/
-/*    font-size: 0.95rem;  !* slightly smaller text *!*/
-/*    color: #333;         !* dark grey *!*/
-/*}*/
+
 #orderFare,
 #orderService,
 #orderTaxes {
@@ -218,21 +211,21 @@
 }
 
 #orderTotal {
-    font-size: 1.3rem;   /* highlight total */
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #198754;      /* Bootstrap success green */
+    color: #198754;
 }
 #orderRoute strong,
 #orderSeats strong,
 #orderPassenger strong {
-    font-weight: bold;   /* only label bold */
+    font-weight: bold;
     margin-right: 5px;
 }
 
 #orderRoute .value,
 #orderSeats .value,
 #orderPassenger .value {
-    font-weight: normal; /* dynamic data normal */
+    font-weight: normal;
     color: #333;
     font-size: 0.95rem;
 }

@@ -22,7 +22,6 @@ public class HeldSeatExpiryTask {
     public void expireHeldSeats() {
         LocalDateTime now = LocalDateTime.now();
 
-        // Expire TripSeats
         List<TripSeat> expiredSeats = tripSeatRepository.findByStatusAndHoldExpiresAtBefore("HELD", now);
         for (TripSeat ts : expiredSeats) {
             ts.setStatus("AVAILABLE");
@@ -30,7 +29,6 @@ public class HeldSeatExpiryTask {
         }
         tripSeatRepository.saveAll(expiredSeats);
 
-        // Expire Bookings
         List<Booking> expiredBookings = bookingRepository.findByStatusAndExpiresAtBefore("HELD", now);
         for (Booking b : expiredBookings) {
             b.setStatus("EXPIRED");

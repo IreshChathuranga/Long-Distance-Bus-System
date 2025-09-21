@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const bookingSummary = JSON.parse(localStorage.getItem("bookingSummary"));
-    // const bookingRef = localStorage.getItem("bookingRef");
     if (!bookingSummary) {
         console.warn("No bookingSummary in localStorage");
         return;
     }
 
-    // bind
     document.querySelector("#orderCompany").textContent = bookingSummary.company || "";
     document.querySelector("#orderRoute").textContent = bookingSummary.route || "";
     document.querySelector("#orderSeats").textContent = bookingSummary.seats || "";
@@ -22,10 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     payBtn.innerHTML = `<i class="fas fa-lock me-2"></i>Pay Now Rs.${Number(bookingSummary.totalAmount || 0).toFixed(2)}`;
 
     payBtn.addEventListener("click", async (ev) => {
-        ev.preventDefault(); // stop default behavior
+        ev.preventDefault();
         console.log("Pay Now clicked");
 
-        // Get JWT token from localStorage
         const token = localStorage.getItem("jwtToken") || localStorage.getItem("token") || "";
         console.log("JWT token:", token);
 
@@ -52,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`  // <-- token included here
+                    "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify(payload)
             });

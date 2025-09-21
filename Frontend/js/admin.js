@@ -1,4 +1,3 @@
-// admin-navigation.js
 
 document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link[data-section]");
@@ -8,18 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
 
-            // Remove 'active' class from all nav links
             navLinks.forEach(link => link.classList.remove("active"));
 
-            // Add 'active' to clicked nav link
             link.classList.add("active");
 
             const target = link.getAttribute("data-section") + "-section";
 
-            // Hide all sections
             sections.forEach(section => section.classList.add("d-none"));
 
-            // Show target section
             const sectionToShow = document.getElementById(target);
             if (sectionToShow) {
                 sectionToShow.classList.remove("d-none");
@@ -32,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dashDate = document.getElementById("dashDate");
     const today = new Date();
     const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months start at 0
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
     const formattedDate = `${yyyy}-${mm}-${dd}`;
     dashDate.value = formattedDate;
@@ -72,9 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-//for bus management
 function loadBuses() {
-    const token = localStorage.getItem("jwtToken"); // Replace "token" with your actual key name
+    const token = localStorage.getItem("jwtToken");
 
     if (!token) {
         console.error("Token not found. Please login first.");
@@ -175,15 +169,12 @@ function editBus(bus) {
     document.getElementById("editAmenities").value = bus.amenities;
     document.getElementById("editActive").value = bus.active;
 
-    // Load operator options first, then select current operatorId
     loadOperatorOptions();
 
-    // Wait for a short delay to ensure options are loaded (or use a callback if necessary)
     setTimeout(() => {
         document.getElementById("editOperatorId").value = bus.operatorId;
     }, 300);
 
-    // Show modal
     const modal = new bootstrap.Modal(document.getElementById("editBusModal"));
     modal.show();
 }
@@ -218,7 +209,7 @@ function submitEditBus() {
             alert("Bus updated successfully!");
             const modal = bootstrap.Modal.getInstance(document.getElementById("editBusModal"));
             modal.hide();
-            loadBuses(); // Refresh table
+            loadBuses();
         })
         .catch(error => {
             console.error("Error updating bus:", error);
@@ -255,8 +246,8 @@ function submitAddBus() {
             alert("Bus added successfully!");
             const modal = bootstrap.Modal.getInstance(document.getElementById("addBusModal"));
             modal.hide();
-            loadBuses(); // Refresh table
-            document.getElementById("addBusForm").reset(); // Optional: reset form
+            loadBuses();
+            document.getElementById("addBusForm").reset();
         })
         .catch(error => {
             console.error("Error adding bus:", error);
@@ -284,7 +275,7 @@ function deleteBus(busId) {
         })
         .then(data => {
             alert("Bus deleted successfully!");
-            loadBuses(); // Reload the bus list after deletion
+            loadBuses();
         })
         .catch(error => {
             console.error("Error deleting bus:", error);
@@ -292,7 +283,6 @@ function deleteBus(busId) {
         });
 }
 
-//for route management
 
 function loadRoutes() {
     const token = localStorage.getItem("jwtToken");
@@ -317,7 +307,7 @@ function loadRoutes() {
         })
         .then(data => {
             const tbody = document.querySelector("#routes-section table tbody");
-            tbody.innerHTML = ""; // Clear previous data
+            tbody.innerHTML = "";
 
             data.data.forEach(route => {
                 const row = document.createElement("tr");
@@ -349,7 +339,6 @@ function loadRoutes() {
 }
 
 
-//for shedule managment
 
 function loadSchedules() {
     const token = localStorage.getItem("jwtToken");
@@ -503,7 +492,7 @@ document.getElementById("submitScheduleBtn").addEventListener("click", function 
             document.getElementById("addScheduleForm").reset();
             const modal = bootstrap.Modal.getInstance(document.getElementById("addScheduleModal"));
             modal.hide();
-            loadSchedules(); // refresh table
+            loadSchedules();
         })
         .catch(error => {
             console.error("Error adding schedule:", error);
@@ -511,7 +500,6 @@ document.getElementById("submitScheduleBtn").addEventListener("click", function 
         });
 });
 function editSchedule(schedule) {
-    // Load bus and route options before filling data
     loadBusOptionsForEdit(schedule.busId);
     loadRouteOptionsForEdit(schedule.routeId);
 
@@ -519,7 +507,6 @@ function editSchedule(schedule) {
     document.getElementById("editScheduleBus").value = schedule.busId;
     document.getElementById("editScheduleRoute").value = schedule.routeId;
 
-    // Extract date and time from ISO string
     const departDate = new Date(schedule.departTime);
     const formattedDate = departDate.toISOString().split("T")[0];
     const formattedTime = departDate.toTimeString().split(":").slice(0,2).join(":");
@@ -576,7 +563,7 @@ document.getElementById("updateScheduleBtn").addEventListener("click", function 
             document.getElementById("editScheduleForm").reset();
             const modal = bootstrap.Modal.getInstance(document.getElementById("editScheduleModal"));
             modal.hide();
-            loadSchedules(); // refresh table
+            loadSchedules();
         })
         .catch(error => {
             console.error("Error updating schedule:", error);
@@ -657,7 +644,7 @@ function deleteSchedule(scheduleId) {
         })
         .then(data => {
             alert("Schedule deleted successfully.");
-            loadSchedules(); // Refresh table after delete
+            loadSchedules();
         })
         .catch(error => {
             console.error("Error deleting schedule:", error);
@@ -665,7 +652,6 @@ function deleteSchedule(scheduleId) {
         });
 }
 
-//for booking management
 function loadBookings() {
     const token = localStorage.getItem("jwtToken");
 
@@ -692,7 +678,7 @@ function loadBookings() {
         })
         .then(data => {
             allBookings = data.data;
-            currentPage = 1; // Reset to page 1
+            currentPage = 1;
             renderBookingsTable(allBookings);
         })
         .catch(error => {
@@ -776,7 +762,6 @@ function editBooking(booking) {
     document.getElementById("editCurrency").value = booking.currency;
     document.getElementById("editStatus").value = booking.status;
 
-    // Load Trip and User dropdowns first, then set selected values
     loadTripOptions("editTripId", booking.tripId);
     loadUserOptions("editUserId", booking.userId);
 
@@ -858,7 +843,7 @@ document.getElementById("editBookingForm").addEventListener("submit", function (
             alert("Booking updated successfully!");
             const modal = bootstrap.Modal.getInstance(document.getElementById("editBookingModal"));
             modal.hide();
-            loadBookings(); // refresh table
+            loadBookings();
         })
         .catch(error => {
             console.error("Update failed:", error);
@@ -895,30 +880,23 @@ function deleteBooking(bookingId) {
         });
 }
 
-//Users management
-// Globals
+
 const token = localStorage.getItem("jwtToken");
 
-// On page load or whenever user clicks "User Management"
 document.addEventListener("DOMContentLoaded", function () {
-    // ... other sections listeners ...
 
-    // If there's a section trigger for users:
     document.querySelector('[data-section="users"]').addEventListener("click", function () {
-        loadAllUsers(); // load initial data (passengers, operators, admins)
-        // Also ensure select is set
+        loadAllUsers();
         document.getElementById("userTypeSelect").value = "passengers";
         showUserTable("passengers");
     });
 
-    // When select changes
     document.getElementById("userTypeSelect").addEventListener("change", function () {
-        const selected = this.value; // “passengers” or “operators” or “admins”
+        const selected = this.value;
         showUserTable(selected);
     });
 });
 
-// Function to show only the selected table, hide others
 function showUserTable(type) {
     const tables = {
         "passengers": document.getElementById("passengersTable"),
@@ -935,14 +913,12 @@ function showUserTable(type) {
     });
 }
 
-// Function to load data for all types
 function loadAllUsers() {
     if (!token) {
         alert("Session expired. Please login again.");
         return;
     }
 
-    // Fetch passengers/users
     fetch("http://localhost:8080/api/v1/register/get", {
         method: "GET",
         headers: {
@@ -952,7 +928,7 @@ function loadAllUsers() {
     })
         .then(resp => resp.json())
         .then(data => {
-            const users = data.data; // Array of UserDTO
+            const users = data.data;
             populateUsersTable(users);
         })
         .catch(error => {
@@ -960,7 +936,6 @@ function loadAllUsers() {
             alert("Error loading users.");
         });
 
-    // Fetch operators
     fetch("http://localhost:8080/api/v1/operator/get", {
         method: "GET",
         headers: {
@@ -978,7 +953,6 @@ function loadAllUsers() {
             alert("Error loading operators.");
         });
 
-    // Fetch admins
     fetch("http://localhost:8080/api/v1/admin/get", {
         method: "GET",
         headers: {
@@ -997,7 +971,6 @@ function loadAllUsers() {
         });
 }
 
-// Functions to populate each table
 
 function populateUsersTable(users) {
     const tbody = document.querySelector("#passengersTable tbody");
@@ -1011,7 +984,7 @@ function populateUsersTable(users) {
       <td>${user.email}</td>
       <td>${user.phone}</td>
       <td>${user.nic}</td>
-      <td>******</td>  <!-- hide real password / show placeholder -->
+      <td>******</td>  
       <td><span class="badge ${getRoleBadgeClass(user.role)}">${user.role}</span></td>
       <td>
         <button class="btn btn-sm btn-outline-primary me-1" onclick='editUser(${JSON.stringify(user)})'>
@@ -1079,7 +1052,6 @@ function populateAdminsTable(admins) {
     });
 }
 
-// Helper for badge class based on role
 function getRoleBadgeClass(role) {
     switch ((role || "").toUpperCase()) {
         case "ADMIN":
@@ -1094,7 +1066,6 @@ function getRoleBadgeClass(role) {
     }
 }
 
-// Helper for operator status badge (if any)
 function getStatusBadgeClass(status) {
     // You can set mapping of statuses
     if (!status) return "bg-secondary";
@@ -1102,7 +1073,6 @@ function getStatusBadgeClass(status) {
     if (status.toUpperCase() === "INACTIVE") return "bg-secondary";
     return "bg-warning";
 }
-// ===== USERS =====
 function editUser(user) {
     document.getElementById("updateUserId").value = user.userId;
     document.getElementById("updateFirstName").value = user.firstName;
@@ -1156,7 +1126,6 @@ function deleteUser(id) {
         });
 }
 
-// ===== OPERATORS =====
 function editOperator(op) {
     document.getElementById("updateOperatorId").value = op.operatorId;
     document.getElementById("updateOperatorName").value = op.name;
@@ -1210,7 +1179,6 @@ function deleteOperator(id) {
         });
 }
 
-// ===== ADMINS =====
 function editAdmin(adm) {
     document.getElementById("updateAdminId").value = adm.adminId;
     document.getElementById("updateAdminName").value = adm.name;
@@ -1267,14 +1235,11 @@ function deleteAdmin(id) {
 const addUserBtn = document.querySelector('[data-bs-target="#addUserModal"]');
 const userTypeSelect = document.getElementById("userTypeSelect");
 
-// Disable Add User for Passengers + Show/Hide Fields
 userTypeSelect.addEventListener("change", function () {
     const type = this.value;
 
-    // hide all conditional fields first
     document.querySelectorAll(".operator-field, .admin-field").forEach(el => el.classList.add("d-none"));
 
-    // by default phone hide karanna
     document.getElementById("userPhone").closest(".mb-3").classList.add("d-none");
 
     if (type === "passengers") {
@@ -1283,28 +1248,22 @@ userTypeSelect.addEventListener("change", function () {
         addUserBtn.disabled = false;
 
         if (type === "operators") {
-            // show only operator fields
             document.querySelectorAll(".operator-field").forEach(el => el.classList.remove("d-none"));
-            // Phone number not required for operator
             document.getElementById("userPhone").removeAttribute("required");
 
         } else if (type === "admins") {
-            // show admin fields
             document.querySelectorAll(".admin-field").forEach(el => el.classList.remove("d-none"));
-            // show phone field for admin
             document.getElementById("userPhone").closest(".mb-3").classList.remove("d-none");
             document.getElementById("userPhone").setAttribute("required", "true");
         }
     }
 });
 
-// Default load
 if (userTypeSelect.value === "passengers") {
     addUserBtn.disabled = true;
 }
 
 
-// Handle Add User Submit
 document.getElementById("addUserForm").addEventListener("submit", function (e) {
     e.preventDefault();
 

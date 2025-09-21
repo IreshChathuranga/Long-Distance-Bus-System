@@ -1,4 +1,3 @@
-/* Custom CSS for Lanka Express Bus Ticketing System */
 
 :root {
     --primary-color: #2563eb;
@@ -23,11 +22,8 @@ body {
     font-family: "Inter", sans-serif;
     line-height: 1.6;
     color: #374151;
-    /* Adjust this value to exactly match your navbar height */
-    /*padding-top: 70px;*/
 }
 
-/* Navigation Styles */
 .navbar {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
@@ -55,18 +51,17 @@ body {
     background-size: cover;
     background-position: center;
     color: #ffffff;
-    transition: background-image 1s ease-in-out; /* Smooth fade */
+    transition: background-image 1s ease-in-out;
 }
 
 .logo-img {
-    width: 150px;   /* logo width */
-    height: auto;   /* preserve aspect ratio */
+    width: 150px;
+    height: auto;
     display: block;
-    margin: 0 auto; /* center horizontally */
+    margin: 0 auto;
     padding-right: 20px;
     padding-top: 10px;
 }
-/* Content always on top */
 .hero-content {
     position: relative;
     z-index: 3;
@@ -81,12 +76,10 @@ body {
 .btn-book{
     color: #374151;
 }
-/* Quick Search Section */
 .quick-search-section {
     margin-top: -120px;
     position: relative;
     z-index: 10;
-    /*height: 20vh;*/
 }
 
 .search-card {
@@ -97,20 +90,18 @@ body {
     border: 1px solid #d0d0d0;
 }
 .logo{
-    width: 180px;   /* logo width */
-    height: auto;   /* preserve aspect ratio */
+    width: 180px;
+    height: auto;
     display: block;
-    margin: 0 auto; /* center horizontally */
+    margin: 0 auto;
     padding-right: 20px;
     padding-bottom: 30px;
 }
-/* Features Section */
 .features-section {
     padding: 5rem 0;
 }
 
 .feature-card {
-    /*background: #eeeeee;*/
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
@@ -119,8 +110,7 @@ body {
     transition: all 0.3s ease;
 }
 .card{
-    position: relative; /* important for overlay positioning */
-    /*background-image: url('../image/img4.jpg');*/
+    position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -130,7 +120,7 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     border: 1px solid #f1f5f9;
     transition: all 0.3s ease;
-    overflow: hidden; /* ensures overlay stays inside */
+    overflow: hidden;
 }
 .card::before {
     content: "";
@@ -139,16 +129,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4); /* dark overlay */
+    background: rgba(0,0,0,0.4);
     border-radius: 15px;
     z-index: 1;
 }
 .card .feature-icon,
 .card h4,
 .card p {
-    position: relative; /* make them appear above overlay */
+    position: relative;
     z-index: 2;
-    color: #fff; /* ensure text is visible over dark overlay */
+    color: #fff;
 }
 .feature-card:hover {
     transform: translateY(-5px);
@@ -659,24 +649,21 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4); /* dark overlay */
+    background: rgba(0,0,0,0.4);
     z-index: 1;
 }
 .hero-content {
     position: relative;
-    z-index: 2; /* overlay වලට ඉස්සරහ */
+    z-index: 2;
 }
 .navbar .nav-link {
-    /*color: white !important;   !* White links when over Hero *!*/
     transition: color 0.3s ease;
 }
 
-/* After scroll */
 .navbar.scrolled {
-    /*background: white !important;   !* White background after scroll *!*/
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .navbar.scrolled .nav-link {
-    color: #374151 !important;  /* Dark text after scroll */
+    color: #374151 !important;
 }

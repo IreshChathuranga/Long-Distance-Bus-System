@@ -37,5 +37,5 @@ public class Trip {
     private LocalDateTime arrivalEta;
 
     @Column(name = "status", nullable = false, length = 20)
-    private String status; //        SCHEDULED, BOARDING, IN_PROGRESS, COMPLETED, CANCELLED
+    private String status;
 }

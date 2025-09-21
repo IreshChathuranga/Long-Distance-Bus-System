@@ -39,12 +39,10 @@ public class PayHereController {
     @Value("${payhere.secret.key}")
     private String payhereSecret;
 
-    // frontend calls this with bookingRef (or create booking beforehand)
     @PostMapping(value = "/initiate",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.TEXT_HTML_VALUE)
-    public String initiatePayment(@RequestHeader("Authorization") String authHeader,@RequestBody Map<String, Object> payload) {
-//        String jwtToken = authHeader.replace("Bearer ", ""); // Extract token from header
+    public String initiatePayment(@RequestBody Map<String, Object> payload) {
         String bookingRef = (String) payload.get("bookingRef");
         String amount = String.format("%.2f", new BigDecimal(payload.get("amount").toString()));
         String items = (String) payload.getOrDefault("items", "Bus Ticket");
@@ -52,14 +50,13 @@ public class PayHereController {
         String lastName = (String) payload.getOrDefault("lastName", "");
         String email = (String) payload.getOrDefault("email", "");
         String phone = (String) payload.getOrDefault("phone", "");
-        // new required params
         String address = (String) payload.getOrDefault("address", "");
         String city = (String) payload.getOrDefault("city", "");
-        String country = (String) payload.getOrDefault("country", "Sri Lanka");  // default
+        String country = (String) payload.getOrDefault("country", "Sri Lanka");
 
         String returnUrl = "http://localhost:63342/Gamana%20Travel/Frontend/html/payment-success.html?order_id=" + bookingRef;
         String cancelUrl = appBaseUrl + "/payment-cancel.html";
-        String notifyUrl = "https://cb532cf9edef.ngrok-free.app/api/v1/payhere/notify";
+        String notifyUrl = "https://0646f5f583df.ngrok-free.app/api/v1/payhere/notify";
 
         String payhereUrl = "https://sandbox.payhere.lk/pay/checkout";
 
@@ -79,7 +76,6 @@ public class PayHereController {
                 + "<input type='hidden' name='last_name' value='" + URLEncoder.encode(lastName, UTF_8) + "'/>"
                 + "<input type='hidden' name='email' value='" + URLEncoder.encode(email, UTF_8) + "'/>"
                 + "<input type='hidden' name='phone' value='" + URLEncoder.encode(phone, UTF_8) + "'/>"
-                // new ones:
                 + "<input type='hidden' name='address' value='" + URLEncoder.encode(address, UTF_8) + "'/>"
                 + "<input type='hidden' name='city' value='" + URLEncoder.encode(city, UTF_8) + "'/>"
                 + "<input type='hidden' name='country' value='" + URLEncoder.encode(country, UTF_8) + "'/>"
@@ -122,11 +118,9 @@ public class PayHereController {
                 return "BOOKING_NOT_FOUND";
             }
 
-            // Check if payment already exists for this bookingRef to avoid unique constraint violation
             boolean paymentExists = paymentRepository.existsByBookingRef(orderId);
             if (paymentExists) {
                 log.warn("Payment already exists for bookingRef {}. Skipping duplicate save.", orderId);
-                // possibly update status or ignore
                 return "ALREADY_PAID";
             }
 

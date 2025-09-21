@@ -69,7 +69,6 @@ public class TripSeatServiceImpl implements TripSeatService {
     @Override
     public List<TripSeat> getSeatsForTrip(Integer tripId) {
         List<TripSeat> seats = tripSeatRepository.findByTrip_TripId(tripId);
-        // Return empty list if no seats exist (frontend-safe)
         return seats != null ? seats : List.of();
     }
 }

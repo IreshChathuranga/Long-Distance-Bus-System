@@ -4,10 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const resendBtn = document.getElementById("resendOtp")
     const timerElement = document.getElementById("timer")
 
-    let timeLeft = 300 // 5 minutes in seconds
+    let timeLeft = 300
     let timerInterval
 
-    // Initialize timer
     startTimer()
 
     // OTP input handling

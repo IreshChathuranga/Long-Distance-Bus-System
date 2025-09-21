@@ -28,12 +28,10 @@ public class BookingServiceImpl implements BookingService {
     @Override
     @Transactional
     public void saveBooking(BookingDTO bookingDTO) {
-        // Split seat numbers as String list
         List<String> selectedSeatNumbers = Arrays.stream(bookingDTO.getSeatNumber().split(","))
                 .map(String::trim)
                 .toList();
 
-        // Find trip seats by seatNumber (String)
         List<TripSeat> tripSeats = tripSeatRepository
                 .findByTripIdAndSeatNumbers(bookingDTO.getTripId(), selectedSeatNumbers);
 
@@ -41,7 +39,6 @@ public class BookingServiceImpl implements BookingService {
             throw new ResourseNotFound("No seats found for selected trip.");
         }
 
-        // Check status
         for (TripSeat ts : tripSeats) {
             if ("HELD".equals(ts.getStatus()) && ts.getHoldExpiresAt() != null &&
                     ts.getHoldExpiresAt().isAfter(LocalDateTime.now())) {
@@ -52,7 +49,6 @@ public class BookingServiceImpl implements BookingService {
             }
         }
 
-        // Save booking
         Booking booking = new Booking();
         booking.setBookingRef(bookingDTO.getBookingRef());
         booking.setSeatNumber(bookingDTO.getSeatNumber());
@@ -72,7 +68,6 @@ public class BookingServiceImpl implements BookingService {
 
         bookingRepository.save(booking);
 
-        // Update TripSeats
         LocalDateTime holdExpiresAt = LocalDateTime.now().plusMinutes(30);
         tripSeats.forEach(ts -> {
             ts.setStatus("HELD");
@@ -94,12 +89,10 @@ public class BookingServiceImpl implements BookingService {
         booking.setStatus("BOOKED");
         bookingRepository.save(booking);
 
-        // Split seat numbers as String
         List<String> selectedSeatNumbers = Arrays.stream(booking.getSeatNumber().split(","))
                 .map(String::trim)
                 .toList();
 
-        // Find seats by seatNumber (String)
         List<TripSeat> tripSeats = tripSeatRepository
                 .findByTripIdAndSeatNumbers(booking.getTrip().getTripId(), selectedSeatNumbers);
 

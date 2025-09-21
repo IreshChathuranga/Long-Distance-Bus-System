@@ -1,6 +1,4 @@
-// registration.js
 
-// Word spin animation
 const words = ["COLOMBO", "ANURADHAPURA", "TRINKOMALIEE", "GALLE"];
 let index = 0;
 const animatedSpan = document.getElementById("animatedWords");
@@ -17,7 +15,6 @@ function changeWord() {
 changeWord();
 setInterval(changeWord, 2000);
 
-// Toggle password visibility
 const togglePasswordBtn = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 
@@ -27,13 +24,11 @@ togglePasswordBtn.addEventListener("click", () => {
     togglePasswordBtn.querySelector("i").classList.toggle("fa-eye-slash");
 });
 
-// Registration form submission
 const registrationForm = document.getElementById("registrationForm");
 
 registrationForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Validate password match
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
     if (password !== confirmPassword) {
@@ -41,7 +36,6 @@ registrationForm.addEventListener("submit", async (e) => {
         return;
     }
 
-    // Prepare user data
     const userData = {
         firstName: document.getElementById("firstName").value.trim(),
         lastName: document.getElementById("lastName").value.trim(),
@@ -60,19 +54,18 @@ registrationForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(userData)
         });
 
-        let resultText = await response.text(); // Get raw text first
+        let resultText = await response.text();
 
         let result = {};
         try {
-            result = JSON.parse(resultText); // Try to parse JSON
+            result = JSON.parse(resultText);
         } catch (e) {
-            // Failed to parse, keep result as empty object
         }
 
         if (response.ok) {
             alert(result.message || "User registered successfully!");
             registrationForm.reset();
-            window.location.href = "user-login.html"; // ✅ Redirect after success
+            window.location.href = "user-login.html";
         } else {
             alert(result.message || `Registration failed. Server responded with status ${response.status}`);
         }

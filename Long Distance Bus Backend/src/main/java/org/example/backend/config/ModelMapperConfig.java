@@ -14,7 +14,6 @@ public class ModelMapperConfig {
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();
 
-        // Skip 'name' during automatic mapping
         modelMapper.addMappings(new PropertyMap<User, UserDTO>() {
             @Override
             protected void configure() {

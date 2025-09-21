@@ -17,7 +17,6 @@ public class PayHereUtil {
         }
     }
 
-    // Verify Hash (for IPN/notify callback)
     public static boolean verifyMd5(String merchantId, String orderId, String amount,
                                     String currency, String statusCode, String merchantSecret, String receivedMd5) {
         String formattedAmount = String.format("%.2f", new BigDecimal(amount));

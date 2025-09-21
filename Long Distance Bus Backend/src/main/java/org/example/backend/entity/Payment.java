@@ -29,11 +29,6 @@ public class Payment {
 
     @Column(name = "currency", nullable = false, length = 3)
     private String currency;
-//    CARD,
-//    MOBILE,
-//    CASH,
-//    OTHER
-
     @Column(name = "method", nullable = false, length = 20)
     private String method;
 
@@ -45,10 +40,6 @@ public class Payment {
 
     @Column(name = "status", nullable = false, length = 20)
     private String status;
-//    INITIATED,
-//    SUCCESS,
-//    FAILED,
-//    REFUNDED
 
     @Column(name = "paid_at")
     private LocalDateTime paidAt;

@@ -48,9 +48,7 @@ public class EmailService {
         }
     }
 
-    /**
-     *  2. Send E-Ticket with Embedded QR Code (Base64 image)
-     */
+
     public void sendETicketWithQR(String toEmail, String qrCodeBase64, String bookingRef, String passengerName, String nic, String route,
             String seat, String date, String amount, String company) {
         try {
@@ -61,11 +59,9 @@ public class EmailService {
             helper.setSubject("Your E-Ticket - " + bookingRef + " (" + company + ")");
             helper.setFrom(new InternetAddress("your-email@gmail.com", company + " Tickets"));
 
-            // Base64 decode QR code
-            String base64Image = qrCodeBase64.split(",")[1]; // remove "data:image/png;base64,"
+            String base64Image = qrCodeBase64.split(",")[1];
             byte[] imageBytes = Base64.getDecoder().decode(base64Image);
 
-            // Email body with inline QR image (cid:qrCodeImage)
             String htmlContent = "<div style='font-family: Arial, sans-serif;'>"
                     + "<h2 style='color: #007bff;'>" + company + " - E-Ticket</h2>"
                     + "<p>Dear " + passengerName + ",</p>"
@@ -83,12 +79,10 @@ public class EmailService {
                     + "<img src='cid:qrCodeImage' style='width:150px;height:150px;'/>"
                     + "<br/><p>Safe Travels!</p></div>";
 
-            helper.setText(htmlContent, true); // true = isHtml
+            helper.setText(htmlContent, true);
 
-            // Attach QR code image as inline
             helper.addInline("qrCodeImage", new ByteArrayResource(imageBytes), "image/png");
 
-            // Send the message
             mailSender.send(message);
 
         } catch (MessagingException | java.io.UnsupportedEncodingException e) {

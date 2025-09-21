@@ -4,16 +4,13 @@ let marker;
 function initMap() {
     const defaultLocation = [7.2510, 80.3464];
 
-    // Initialize Leaflet map
     map = L.map("mapContainer").setView(defaultLocation, 12);
 
-    // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 18,
         attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Add default marker
     marker = L.marker(defaultLocation).addTo(map)
         .bindPopup("Bus Location")
         .openPopup();
@@ -38,8 +35,8 @@ function updateMap(data) {
     const { latitude, longitude } = data;
     const pos = [latitude, longitude];
 
-    map.setView(pos, 13); // Re-center map
-    marker.setLatLng(pos) // Move marker
+    map.setView(pos, 13);
+    marker.setLatLng(pos)
         .setPopupContent("Bus Location")
         .openPopup();
 }

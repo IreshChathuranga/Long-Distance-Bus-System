@@ -37,7 +37,6 @@ public class AuthController {
         try {
             String ip = servletRequest.getRemoteAddr();
 
-            // Try user authentication
             try {
                 UserDTO user = userService.authenticate(loginRequestDTO.getEmail(), loginRequestDTO.getPassword());
                 String token = jwtUtil.generateToken(user.getEmail());
@@ -47,7 +46,6 @@ public class AuthController {
                         new APIResponse(200, "User login successful", new TokenResponseDTO(token, user))
                 );
             } catch (RuntimeException userEx) {
-                // Try admin authentication
                 try {
                     AdminDTO admin = adminService.authenticateAdmin(loginRequestDTO.getEmail(), loginRequestDTO.getPassword());
                     String token = jwtUtil.generateToken(admin.getEmail());
@@ -57,7 +55,6 @@ public class AuthController {
                             new APIResponse(200, "Admin login successful", new TokenResponseDTO(token, admin))
                     );
                 } catch (RuntimeException adminEx) {
-                    // Neither user nor admin
                     return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                             .body(new APIResponse(401, "Invalid credentials", null));
                 }
@@ -88,10 +85,8 @@ public class AuthController {
             GoogleIdToken.Payload tokenPayload = googleIdToken.getPayload();
             String email = tokenPayload.getEmail();
 
-            // Check if user exists or create one
             UserDTO user = userService.findOrCreateGoogleUser(email);
 
-            // Issue JWT
             String jwt = jwtUtil.generateToken(email);
 
             String ip = servletRequest.getRemoteAddr();
@@ -104,30 +99,4 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new APIResponse(500, "Server error", null));
         }
     }
-
-//    @PostMapping("/admin-login")
-//    public ResponseEntity<?> adminLogin(@RequestBody LoginRequestDTO loginRequestDTO,
-//                                        HttpServletRequest servletRequest) {
-//        try {
-//            AdminDTO admin = adminService.authenticateAdmin(loginRequestDTO.getEmail(), loginRequestDTO.getPassword());
-//
-//            String token = jwtUtil.generateToken(admin.getEmail());
-//
-//            // Login notification
-//            String ip = servletRequest.getRemoteAddr();
-//            emailService.sendLoginNotification(admin.getEmail(), ip);
-//
-//            TokenResponseDTO response = new TokenResponseDTO(token, admin);
-//            return ResponseEntity.ok(new APIResponse(200, "Admin login successful", response));
-//
-//        } catch (RuntimeException ex) {
-//            log.warn("Admin login failed: {}", ex.getMessage());
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-//                    .body(new APIResponse(401, ex.getMessage(), null));
-//        } catch (Exception ex) {
-//            log.error("Admin login error: {}", ex.getMessage());
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                    .body(new APIResponse(500, "Internal server error", null));
-//        }
-//    }
 }

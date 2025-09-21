@@ -32,7 +32,7 @@ public class TripSeat {
     private Seat seat;
 
     @Column(name = "status", nullable = false, length = 20)
-    private String status; //        AVAILABLE, HELD, BOOKED, BLOCKED
+    private String status;
 
     @Column(name = "hold_expires_at")
     private LocalDateTime holdExpiresAt;

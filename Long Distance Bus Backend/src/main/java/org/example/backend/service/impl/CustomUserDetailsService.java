@@ -16,20 +16,18 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        // 1. Try finding in user table
         return userRepository.findByEmail(email)
                 .<UserDetails>map(user -> org.springframework.security.core.userdetails.User
                         .withUsername(user.getEmail())
                         .password(user.getPasswordHash())
-                        .authorities("USER") // User role
+                        .authorities("USER")
                         .build())
 
-                // 2. If not found, try admin table
                 .orElseGet(() -> adminRepository.findByEmail(email)
                         .map(admin -> org.springframework.security.core.userdetails.User
                                 .withUsername(admin.getEmail())
-                                .password(admin.getPassword()) // make sure password field is same as user
-                                .authorities("ADMIN") // Admin role
+                                .password(admin.getPassword())
+                                .authorities("ADMIN")
                                 .build())
                         .orElseThrow(() -> new UsernameNotFoundException("User/Admin not found with email: " + email))
                 );

@@ -1,8 +1,6 @@
-// background-slideshow.js
 
-// Background images list
 const bgImages = [
-    "../image/img4.jpg",  // fixed extension
+    "../image/img4.jpg",
     "../image/img5.jpg",
     "../image/img3.jpg"
 ];
@@ -17,10 +15,8 @@ function changeBackground() {
     }
 }
 
-// Load first image immediately
 changeBackground();
 
-// Change every 40s
 setInterval(changeBackground, 40000);
 
 window.addEventListener("scroll", function () {
@@ -32,13 +28,10 @@ window.addEventListener("scroll", function () {
     }
 });
 
-// Lanka Express Bus Ticketing System - JavaScript
 
-// Import Bootstrap
 const bootstrap = window.bootstrap
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize all components
     initializeSeatSelection()
     initializeFormValidation()
     initializeNotifications()
@@ -50,25 +43,21 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Lanka Express System Initialized")
 })
 
-// Seat Selection Functionality
 function initializeSeatSelection() {
     const seats = document.querySelectorAll(".seat.available")
     let selectedSeat = null
 
     seats.forEach((seat) => {
         seat.addEventListener("click", function () {
-            // Remove previous selection
             if (selectedSeat) {
                 selectedSeat.classList.remove("selected")
                 selectedSeat.classList.add("available")
             }
 
-            // Select new seat
             this.classList.remove("available")
             this.classList.add("selected")
             selectedSeat = this
 
-            // Update booking summary
             updateBookingSummary(this.dataset.seat)
         })
     })
@@ -82,9 +71,7 @@ function updateBookingSummary(seatNumber) {
     }
 }
 
-// Form Validation
 function initializeFormValidation() {
-    // Login Form Validation
     const loginForm = document.querySelector("#loginModal form")
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
@@ -93,7 +80,6 @@ function initializeFormValidation() {
         })
     }
 
-    // Registration Form Validation
     const registerForm = document.querySelector("#registerModal form")
     if (registerForm) {
         registerForm.addEventListener("submit", (e) => {
@@ -102,7 +88,6 @@ function initializeFormValidation() {
         })
     }
 
-    // OTP Form Validation
     const otpForm = document.querySelector("#otpModal form")
     if (otpForm) {
         otpForm.addEventListener("submit", (e) => {
@@ -126,11 +111,9 @@ function validateLoginForm() {
         return
     }
 
-    // Simulate login process
     showNotification("Logging in...", "info")
 
     setTimeout(() => {
-        // Close login modal and show OTP modal
         const loginModal = bootstrap.Modal.getInstance(document.getElementById("loginModal"))
         loginModal.hide()
 
@@ -153,7 +136,6 @@ function validateRegistrationForm() {
         agreeTerms: document.querySelector("#agreeTerms").checked,
     }
 
-    // Validation checks
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.password) {
         showNotification("Please fill in all required fields", "error")
         return
@@ -179,7 +161,6 @@ function validateRegistrationForm() {
         return
     }
 
-    // Simulate registration process
     showNotification("Creating account...", "info")
 
     setTimeout(() => {
@@ -201,7 +182,6 @@ function validateOTPForm() {
         return
     }
 
-    // Simulate OTP verification
     showNotification("Verifying OTP...", "info")
 
     setTimeout(() => {
@@ -214,16 +194,13 @@ function validateOTPForm() {
 }
 
 function updateUIForLoggedInUser() {
-    // Update navigation to show user menu
     const accountDropdown = document.querySelector(".navbar-nav .dropdown-toggle")
     if (accountDropdown) {
         accountDropdown.innerHTML = '<i class="fas fa-user-circle me-1"></i> John Doe'
     }
 }
 
-// Notification System
 function initializeNotifications() {
-    // Create notification container if it doesn't exist
     if (!document.querySelector(".notification-container")) {
         const container = document.createElement("div")
         container.className = "notification-container"
@@ -272,7 +249,6 @@ function showNotification(message, type = "info") {
 
     container.appendChild(notification)
 
-    // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
             notification.remove()
@@ -280,10 +256,8 @@ function showNotification(message, type = "info") {
     }, 5000)
 }
 
-// Live Tracking Functionality
 function initializeLiveTracking() {
-    // Simulate real-time bus tracking updates
-    setInterval(updateBusLocation, 30000) // Update every 30 seconds
+    setInterval(updateBusLocation, 30000)
 }
 
 function updateBusLocation() {
@@ -293,7 +267,6 @@ function updateBusLocation() {
 
     const randomIndex = Math.floor(Math.random() * locations.length)
 
-    // Update tracking display
     const locationElement = document.querySelector(".tracking-info .fw-bold")
     const speedElement = document.querySelectorAll(".tracking-info .fw-bold")[1]
     const etaElement = document.querySelectorAll(".tracking-info .fw-bold")[3]
@@ -303,7 +276,6 @@ function updateBusLocation() {
     if (etaElement) etaElement.textContent = etas[randomIndex]
 }
 
-// Payment Gateway Integration
 function initializePaymentGateway() {
     const paymentForm = document.querySelector("#paymentModal form")
     if (paymentForm) {
@@ -322,32 +294,27 @@ function processPayment() {
         cardholderName: document.querySelector('#paymentModal input[placeholder="John Doe"]').value,
     }
 
-    // Basic validation
     if (!paymentData.cardNumber || !paymentData.expiryDate || !paymentData.cvv || !paymentData.cardholderName) {
         showNotification("Please fill in all payment details", "error")
         return
     }
 
-    // Simulate payment processing
     showNotification("Processing payment...", "info")
 
     setTimeout(() => {
         const paymentModal = bootstrap.Modal.getInstance(document.getElementById("paymentModal"))
         paymentModal.hide()
 
-        // Show confirmation modal
         const confirmationModal = new bootstrap.Modal(document.getElementById("confirmationModal"))
         confirmationModal.show()
 
         showNotification("Payment successful! Booking confirmed", "success")
 
-        // Send confirmation email/SMS (simulated)
         sendBookingConfirmation()
     }, 3000)
 }
 
 function sendBookingConfirmation() {
-    // Simulate sending email and SMS notifications
     setTimeout(() => {
         showNotification("Confirmation email sent", "success")
     }, 1000)
@@ -357,7 +324,6 @@ function sendBookingConfirmation() {
     }, 2000)
 }
 
-// Utility Functions
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
@@ -376,7 +342,6 @@ function generateBookingID() {
     return `${prefix}${year}${random}`
 }
 
-// Search and Filter Functionality
 function initializeSearch() {
     const searchForm = document.querySelector(".search-card form")
     if (searchForm) {
@@ -396,17 +361,13 @@ function performBusSearch() {
 
     showNotification("Searching for available buses...", "info")
 
-    // Simulate search results
     setTimeout(() => {
         showNotification(`Found 5 buses for ${searchData.from} to ${searchData.to}`, "success")
-        // Scroll to schedules section
         document.getElementById("schedules").scrollIntoView({ behavior: "smooth" })
     }, 1500)
 }
 
-// Role-based Access Control
 function checkUserRole() {
-    // This would typically check with the server
     const userRole = localStorage.getItem("userRole") || "passenger"
 
     if (userRole === "admin") {
@@ -417,7 +378,6 @@ function checkUserRole() {
 }
 
 function showAdminFeatures() {
-    // Show admin-specific UI elements
     const adminSection = document.querySelector(".admin-section")
     if (adminSection) {
         adminSection.style.display = "block"
@@ -425,13 +385,10 @@ function showAdminFeatures() {
 }
 
 function showConductorFeatures() {
-    // Show conductor-specific UI elements
     console.log("Conductor features enabled")
 }
 
-// QR Code Generation (simulated)
 function generateQRCode(bookingData) {
-    // In a real application, this would generate an actual QR code
     const qrData = {
         bookingId: bookingData.bookingId,
         route: bookingData.route,
@@ -444,7 +401,6 @@ function generateQRCode(bookingData) {
     return qrData
 }
 
-// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault()
@@ -458,7 +414,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     })
 })
 
-// Auto-hide notifications on scroll
 let lastScrollTop = 0
 window.addEventListener("scroll", () => {
     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -466,10 +421,8 @@ window.addEventListener("scroll", () => {
 
     if (notificationContainer) {
         if (currentScrollTop > lastScrollTop) {
-            // Scrolling down
             notificationContainer.style.transform = "translateX(100%)"
         } else {
-            // Scrolling up
             notificationContainer.style.transform = "translateX(0)"
         }
     }

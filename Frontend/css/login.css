@@ -3,7 +3,6 @@ html, body {
     margin: 0;
 }
 
-/* Left side image with overlay text */
 .left-section {
     position: relative;
     background: url("../image/img2.jpg") no-repeat center center/cover;
@@ -26,7 +25,6 @@ html, body {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
-/* Card base style */
 .card {
     border-radius: 0;
     overflow: hidden;
@@ -35,14 +33,12 @@ html, body {
     flex-direction: column;
 }
 
-/* Card header */
 .card-header {
     color: white;
     height: 17vh;
     border-bottom: 2px solid transparent;
 }
 
-/* Card body */
 .card-body {
     flex: 1;
     display: flex;
@@ -50,7 +46,6 @@ html, body {
     justify-content: center;
 }
 
-/* Custom input fields */
 .custom-input {
     border: 1px solid #4CAF50 !important;
     border-left: transparent !important;
@@ -67,19 +62,16 @@ html, body {
     background-color: #f8f9fa;
 }
 
-/* Placeholder color */
 .custom-input::placeholder {
     color: #999999;
     opacity: 1;
 }
 
-/* Focus state */
 .custom-input:focus {
     border-color: #1E90FF !important;
     box-shadow: 0 0 0 0.2rem rgba(30, 144, 255, 0.25);
 }
 
-/* Buttons */
 .btn-primary {
     background: linear-gradient(135deg, #007bff, #0056b3);
     border: none;
@@ -91,12 +83,10 @@ html, body {
     transform: translateY(-1px);
 }
 
-/* Form help text */
 .form-text {
     font-size: 0.875rem;
 }
 
-/* NIC + Password row */
 .nic-password-row {
     display: flex;
     gap: 15px;
@@ -105,7 +95,6 @@ html, body {
     flex: 1;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .left-section {
         display: none;
@@ -146,10 +135,10 @@ html, body {
     animation: spinUp 0.8s ease forwards;
 }
 .logo-img {
-    width: 200px;   /* logo width */
-    height: auto;   /* preserve aspect ratio */
+    width: 200px;
+    height: auto;
     display: block;
-    margin: 0 auto; /* center horizontally */
+    margin: 0 auto;
 }
 .text{
     color: black;
@@ -171,10 +160,10 @@ html, body {
 .google-btn:hover {
     background-color: #f8f9fa;
     border-color: #c6c6c6;
-    box-shadow: 0 0 8px rgba(66, 133, 244, 0.3),   /* Blue */
-    0 0 6px rgba(219, 68, 55, 0.2),    /* Red */
-    0 0 6px rgba(244, 180, 0, 0.2),    /* Yellow */
-    0 0 6px rgba(15, 157, 88, 0.2);    /* Green */
+    box-shadow: 0 0 8px rgba(66, 133, 244, 0.3),
+    0 0 6px rgba(219, 68, 55, 0.2),
+    0 0 6px rgba(244, 180, 0, 0.2),
+    0 0 6px rgba(15, 157, 88, 0.2);
     transform: translateY(-2px);
 }
 
